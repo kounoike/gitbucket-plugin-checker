@@ -1,0 +1,12 @@
+# PLUGIN_NAME: must set to pluginId
+PLUGIN_NAME=emoji
+
+# PLUGIN_VERSION: must set to Plugins's version
+PLUGIN_VERSION=4.4.0
+
+# PLUGIN_URL: DOWNLOADABLE URL
+PLUGIN_URL=https://github.com/gitbucket/gitbucket-emoji-plugin/releases/download/4.4.0/gitbucket-emoji-plugin_2.12-4.4.0.jar
+
+# PLUGIN_REPO: user/repo style GitHub repository name
+PLUGIN_REPO=gitbucket/gitbucket-emoji-plugin
+

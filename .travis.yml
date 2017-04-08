@@ -10,6 +10,7 @@ env:
     - GITBUCKET_VERSION=4.11
   matrix:
     - TARGET_PLUGIN=ipynb
+    - TARGET_PLUGIN=emoji
 
 cache:
   directories:
