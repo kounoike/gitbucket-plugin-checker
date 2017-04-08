@@ -6,8 +6,6 @@ scala:
 jdk:
   - oraclejdk8
 env:
-  global:
-    - GITBUCKET_VERSION=4.11
   matrix:
     - TARGET_PLUGIN=ipynb
     - TARGET_PLUGIN=emoji
