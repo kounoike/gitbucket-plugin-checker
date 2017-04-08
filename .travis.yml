@@ -11,9 +11,9 @@ cache:
     - $HOME/.sbt/launchers
 
 before_script:
+  - apt-get install libstdc++6
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
-  - sleep 3
   - wget https://github.com/gitbucket/gitbucket/releases/download/4.11/gitbucket.war
   - wget https://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
