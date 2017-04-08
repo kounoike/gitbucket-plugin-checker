@@ -10,6 +10,7 @@ cache:
     - $HOME/.ivy2/cache
     - $HOME/.sbt/boot
     - $HOME/.sbt/launchers
+    - $HOME/.coursier
 
 before_script:
   - sudo apt-get install libstdc++6
@@ -20,7 +21,6 @@ before_script:
   - unzip chromedriver_linux64.zip
   - mkdir -p ~/.gitbucket/plugins
   - wget -P ~/.gitbucket/plugins https://github.com/kounoike/gitbucket-ipynb-plugin/releases/download/0.1.1/gitbucket-ipynb-plugin_2.12-0.1.1.jar
-  - ls -laR
   - java -jar gitbucket.war &
   - sleep 10
 
