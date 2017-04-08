@@ -9,6 +9,6 @@ echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 mkdir -p registry/plugins/$GITBUCKET_VERSION
 echo "{\"name\": \"$PLUGIN_NAME\", \"version\": \"$PLUGIN_VERSION\", \"url\": \"$PLUGIN_URL\"}" > registry/plugins/$GITBUCKET_VERSION/$TARGET_PLUGIN.json
 git add .
-git commit -m "CI Check passed for $PLUGIN_NAME:$PLUGIN_VERSION with GitBucket-$GITBUCKET_VERSION"
+git commit . -m "CI Check passed for $PLUGIN_NAME:$PLUGIN_VERSION with GitBucket-$GITBUCKET_VERSION"
 git push origin HEAD:master
 popd
