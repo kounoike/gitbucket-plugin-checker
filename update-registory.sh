@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source gitbucket-version
 source plugins/$TARGET_PLUGIN
 git clone https://github.com/kounoike/gitbucket-plugin-registry.git
 pushd gitbucket-plugin-registry
