@@ -21,6 +21,8 @@ before_script:
   - wget -P ~/.gitbucket/plugins https://github.com/kounoike/gitbucket-ipynb-plugin/releases/download/0.1.1/gitbucket-ipynb-plugin_2.12-0.1.1.jar
   - java -jar gitbucket.war > gitbucket.log &
   - sleep 10
+  - dpkg -l firefox
+  - dpkg -l chromium-browser
 
 script:
   - sbt test
