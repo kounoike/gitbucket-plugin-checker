@@ -5,6 +5,11 @@ scala:
   - 2.12.1
 jdk:
   - oraclejdk8
+env:
+  global:
+    - GITBUCKET_VERSION=4.11
+  matrix:
+    - TARGET_PLUGIN=ipynb
 
 cache:
   directories:
@@ -16,13 +21,18 @@ cache:
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
-  - wget https://github.com/gitbucket/gitbucket/releases/download/4.11/gitbucket.war
+  - wget https://github.com/gitbucket/gitbucket/releases/download/${GITBUCKET_VERSION}/gitbucket.war
   - mkdir -p ~/.gitbucket/plugins
-  - wget -P ~/.gitbucket/plugins https://github.com/kounoike/gitbucket-ipynb-plugin/releases/download/0.1.1/gitbucket-ipynb-plugin_2.12-0.1.1.jar
+  - source plugins/$TARGET_PLUGIN
+  - wget -P ~/.gitbucket/plugins $PLUGIN_URL
   - java -jar gitbucket.war > gitbucket.log &
   - sleep 10
   - wget https://chromedriver.storage.googleapis.com/2.26/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
 
 script:
-  - sbt -Dwebdriver.chrome.driver=chromedriver test
+  - sbt -Dwebdriver.chrome.driver=chromedriver -DtargetPlugin=$TARGET_PLUGIN -DtargetVersion=$PLUGIN_VERSION test
+
+after_success:
+  - 'echo "{\"name\": \"$PLUGIN_NAME\", \"version\": \"$PLUGIN_VERSION\", \"url\": \"$PLUGIN_URL\"}" > partial_info.json'
+  - cat partial_info.json

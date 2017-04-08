@@ -1,0 +1,12 @@
+# PLUGIN_NAME: must set to pluginId
+PLUGIN_NAME=ipynb
+
+# PLUGIN_VERSION: must set to Plugins's version
+PLUGIN_VERSION=0.1.1
+
+# PLUGIN_URL: DOWNLOADABLE URL
+PLUGIN_URL=https://github.com/kounoike/gitbucket-ipynb-plugin/releases/download/0.1.1/gitbucket-ipynb-plugin_2.12-0.1.1.jar
+
+# PLUGIN_REPO: user/repo style GitHub repository name
+PLUGIN_REPO=kounoike/gitbucket-ipynb-plugin
+
