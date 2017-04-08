@@ -23,8 +23,6 @@ before_script:
   - sleep 10
   - wget https://chromedriver.storage.googleapis.com/2.26/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
-  - dpkg -l firefox
-  - dpkg -l chromium-browser
 
 script:
   - sbt -Dwebdriver.chrome.driver=chromedriver test
