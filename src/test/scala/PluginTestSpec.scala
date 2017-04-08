@@ -3,7 +3,7 @@ import org.scalatest.selenium.Chrome
 import org.scalatest.time.{Seconds, Span}
 
 class PluginTestSpec extends FlatSpec with Matchers with Chrome {
-  val base = "http://pc.local:9080"
+  val base = "http://localhost:8080"
   "plugins page" should "contains this plugin" in {
     go to base + "/signin?redirect=%2Fadmin%2Fplugins"
     textField("userName").value = "root"

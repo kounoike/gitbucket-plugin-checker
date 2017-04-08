@@ -1,0 +1,14 @@
+language: scala
+scala:
+    - 2.12.1
+
+before_script:
+    - "export DISPLAY=:99.0"
+    - "sh -e /etc/init.d/xvfb start"
+    - sleep 3
+    - wget https://github.com/gitbucket/gitbucket/releases/download/4.11/gitbucket.war
+    - java -jar gitbucket.war &
+    - sleep 30
+
+script:
+    - sbt test
