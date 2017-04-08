@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source plugins/$TARGET_PLUGIN
 git clone https://github.com/kounoike/gitbucket-plugin-registry.git registry
 mkdir -p registry/$GITBUCKET_VERSION
 pushd registry
