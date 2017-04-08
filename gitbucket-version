@@ -1,0 +1,5 @@
+# which version to test
+GITBUCKET_VERSION=4.11
+
+# download URL
+GITBUCKET_RELEASE_URL=https://github.com/gitbucket/gitbucket/releases/download/${GITBUCKET_VERSION}/gitbucket.war

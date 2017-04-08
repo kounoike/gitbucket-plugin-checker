@@ -22,7 +22,8 @@ cache:
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
-  - wget https://github.com/gitbucket/gitbucket/releases/download/${GITBUCKET_VERSION}/gitbucket.war
+  - source gitbucket-version
+  - wget $GITBUCKET_RELEASE_URL
   - mkdir -p ~/.gitbucket/plugins
   - source plugins/$TARGET_PLUGIN
   - wget -P ~/.gitbucket/plugins $PLUGIN_URL
@@ -30,10 +31,11 @@ before_script:
   - sleep 10
   - wget https://chromedriver.storage.googleapis.com/2.26/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
+  - git config --global user.email "kounoike.yuusuke@gmail.com"
+  - git config --global user.name "GitBucketPlugins CI Agent"
 
 script:
   - sbt -Dwebdriver.chrome.driver=chromedriver -DtargetPlugin=$TARGET_PLUGIN -DtargetVersion=$PLUGIN_VERSION test
 
 after_success:
-  - 'echo "{\"name\": \"$PLUGIN_NAME\", \"version\": \"$PLUGIN_VERSION\", \"url\": \"$PLUGIN_URL\"}" > partial_info.json'
-  - cat partial_info.json
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./update-registory.sh; fi'
